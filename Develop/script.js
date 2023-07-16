@@ -29,10 +29,10 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
   //Setting and confirming the number of characters
-  var securePass;
+  var securePass = [];
   var pass_length;
 
-  //Keep Checking until expectation met
+  //Keep Checking until expectation met number of chars
   while (isNaN(pass_length) || pass_length < 8 || pass_length > 128) {
     var num_of_chars = prompt("Number of Characters? (8-128) ");
     pass_length = parseInt(num_of_chars);
@@ -44,19 +44,14 @@ function generatePassword() {
     );
   }
 
-  // if (isNaN(pass_length) || pass_length < 8 || pass_length > 128) {
-  //   alert("For Try again! (Legal amount is 8-128)");
-  //   return;
-  // } else {
-  //   var confirmation_of_num = confirm("You said, " + num_of_chars);
-  //   alert(confirmation_of_num ? "Let's Continue" : "Let's try Again then!");
-  // }
+  securePass.length = pass_length;
 
   var char_l_case;
   var char_u_case;
   var char_num;
   var char_spec;
 
+  //Keep Checking until expectation met char type
   while (!char_l_case && !char_u_case && !char_num && !char_spec) {
     char_l_case = confirm("Do you want to include lowercase?");
     char_u_case = confirm("Do you want to include uppercase?");
@@ -66,7 +61,7 @@ function generatePassword() {
     alert(
       !char_l_case && !char_u_case && !char_num && !char_spec
         ? "Please select at least one character type."
-        : "Great!"
+        : "Alright!"
     );
   }
 
