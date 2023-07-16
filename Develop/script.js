@@ -36,6 +36,7 @@ function generatePassword() {
   while (isNaN(pass_length) || pass_length < 8 || pass_length > 128) {
     var num_of_chars = prompt("Number of Characters? (8-128) ");
     pass_length = parseInt(num_of_chars);
+
     alert(
       isNaN(pass_length) || pass_length < 8 || pass_length > 128
         ? "For Try again! (Legal amount is 8-128)"
@@ -56,17 +57,18 @@ function generatePassword() {
   var char_num;
   var char_spec;
 
-  // while (!char_l_case && !char_u_case && !char_num && !char_spec) {
-  //   char_l_case = confirm("Do you want to include lowercase?");
-  //   char_u_case = confirm("Do you want to include uppercase?");
-  //   char_num = confirm("Do you want to include numbers?");
-  //   char_spec = confirm("Do you want to include special character?");
-  //   alert(
-  //     !char_l_case && !char_u_case && !char_num && !char_spec
-  //       ? "Please select at least one character type."
-  //       : "Great!"
-  //   );
-  // }
+  while (!char_l_case && !char_u_case && !char_num && !char_spec) {
+    char_l_case = confirm("Do you want to include lowercase?");
+    char_u_case = confirm("Do you want to include uppercase?");
+    char_num = confirm("Do you want to include numbers?");
+    char_spec = confirm("Do you want to include special character?");
+
+    alert(
+      !char_l_case && !char_u_case && !char_num && !char_spec
+        ? "Please select at least one character type."
+        : "Great!"
+    );
+  }
 
   return securePass;
 }
