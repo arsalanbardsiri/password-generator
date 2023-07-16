@@ -27,13 +27,56 @@ TODO:THEN the password is either displayed in an alert or written to the page
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+function generatePassword() {
+  //Setting and confirming the number of characters
+  var securePass;
+  var pass_length;
+
+  //Keep Checking until expectation met
+  while (isNaN(pass_length) || pass_length < 8 || pass_length > 128) {
+    var num_of_chars = prompt("Number of Characters? (8-128) ");
+    pass_length = parseInt(num_of_chars);
+    alert(
+      isNaN(pass_length) || pass_length < 8 || pass_length > 128
+        ? "For Try again! (Legal amount is 8-128)"
+        : "You said," + pass_length
+    );
+  }
+
+  // if (isNaN(pass_length) || pass_length < 8 || pass_length > 128) {
+  //   alert("For Try again! (Legal amount is 8-128)");
+  //   return;
+  // } else {
+  //   var confirmation_of_num = confirm("You said, " + num_of_chars);
+  //   alert(confirmation_of_num ? "Let's Continue" : "Let's try Again then!");
+  // }
+
+  var char_l_case;
+  var char_u_case;
+  var char_num;
+  var char_spec;
+
+  // while (!char_l_case && !char_u_case && !char_num && !char_spec) {
+  //   char_l_case = confirm("Do you want to include lowercase?");
+  //   char_u_case = confirm("Do you want to include uppercase?");
+  //   char_num = confirm("Do you want to include numbers?");
+  //   char_spec = confirm("Do you want to include special character?");
+  //   alert(
+  //     !char_l_case && !char_u_case && !char_num && !char_spec
+  //       ? "Please select at least one character type."
+  //       : "Great!"
+  //   );
+  // }
+
+  return securePass;
+}
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
