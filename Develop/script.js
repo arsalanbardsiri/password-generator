@@ -27,76 +27,60 @@ TODO:THEN the password is either displayed in an alert or written to the page
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Function to generate the password
 function generatePassword() {
-  //Setting and confirming the number of characters
+  // Setting and confirming the number of characters
   var securePass = "";
   var pass_length;
 
-  //Keep Checking until expectation met number of chars
+  // Keep checking until the expected number of characters is met
   while (isNaN(pass_length) || pass_length < 8 || pass_length > 128) {
-    var num_of_chars = prompt("Number of Characters? (8-128) ");
+    var num_of_chars = prompt("Number of Characters? (8-128)");
     pass_length = parseInt(num_of_chars);
 
+    // Validate the input and provide feedback to the user
     alert(
       isNaN(pass_length) || pass_length < 8 || pass_length > 128
-        ? "For Try again! (Legal amount is 8-128)"
-        : "You said, " + pass_length
+        ? "Please try again! (The legal range is 8-128 characters)"
+        : "You chose " + pass_length + " characters."
     );
   }
 
-  securePass.length = pass_length;
+  // Variable to store the chosen character set
+  var chosen = "";
 
-  var char_l_case;
-  var char_u_case;
-  var char_num;
-  var char_spec;
-  var chosen;
+  // Keep checking until the expected character types are selected
+  while (!chosen) {
+    var char_l_case = confirm("Include lowercase letters?");
+    var char_u_case = confirm("Include uppercase letters?");
+    var char_num = confirm("Include numbers?");
+    var char_spec = confirm("Include special characters?");
 
-  //Keep Checking until expectation met char type
-  while (!char_l_case && !char_u_case && !char_num && !char_spec) {
-    char_l_case = confirm("Do you want to include lowercase?");
-    char_u_case = confirm("Do you want to include uppercase?");
-    char_num = confirm("Do you want to include numbers?");
-    char_spec = confirm("Do you want to include special character?");
-
+    // Validate the input and provide feedback to the user
     alert(
       !char_l_case && !char_u_case && !char_num && !char_spec
         ? "Please select at least one character type."
         : "Alright!"
     );
+
+    // Build the chosen character set based on user selections
+    if (char_l_case) {
+      chosen += "abcdefghijklmnopqrstuvwxyz";
+    }
+    if (char_u_case) {
+      chosen += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    if (char_num) {
+      chosen += "0123456789";
+    }
+    if (char_spec) {
+      chosen += "!#$%&'()*+,-./:;<=>?@[]^_`{|}~\"\\";
+    }
   }
 
-  l_case = "abcdefghijklmnopqrstuvwxyz";
-  u_case = "ABCDEFGHIJKLMNOPQRTSTUVWXYZ";
-  num = "0123456789";
-  spec = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~\"\\";
-  chosen = "";
-
-  /*
-  firstly applying the length
-  now conditionals to cover the choices
-  random selector to choose from chosen str
-  append the selections to empty securePass str
-  */
-
-  if (char_l_case) {
-    chosen += l_case;
-  }
-
-  if (char_u_case) {
-    chosen += u_case;
-  }
-
-  if (char_num) {
-    chosen += num;
-  }
-
-  if (char_spec) {
-    chosen += spec;
-  }
-
+  // Generate the password
   for (let i = 0; i < pass_length; i++) {
-    ran_index = Math.floor(Math.random() * chosen.length);
+    var ran_index = Math.floor(Math.random() * chosen.length);
     securePass += chosen[ran_index];
   }
 
