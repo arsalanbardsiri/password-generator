@@ -65,7 +65,12 @@ function generatePassword() {
     );
   }
 
-  return securePass;
+  l_case = "abcdefghijklmnopqrstuvwxyz"
+  u_case = "ABCDEFGHIJKLMNOPQRTSTUVWXYZ"
+  num = "0123456789"
+  spec = "!()-.?[]_`~;:#$%^&*+="
+
+  return securePass.toString();
 }
 
 // Write password to the #password input
