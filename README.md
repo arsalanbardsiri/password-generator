@@ -11,6 +11,7 @@ The Password Generator is a web application that allows users to generate random
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
+- [Deployed Application](#deployed-application)
 - [Screenshots](#screenshots)
 - [License](#license)
 - [Contact](#contact)
@@ -45,6 +46,9 @@ The Password Generator project utilizes the following technologies:
 
 - JavaScript [![JavaScript](https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
+## Deployed Application
+
+The deployed version of the website can be accessed at [URL](https://arsalanbardsiri.github.io/password-generator/).
 
 ## Screenshots
 
