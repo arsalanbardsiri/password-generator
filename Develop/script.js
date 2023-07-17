@@ -1,11 +1,11 @@
 /*
-TODO: User Story:
+? User Story:
 
-TODO:AS AN employee with access to sensitive data
-TODO:I WANT to randomly generate a password that meets certain criteria
-TODO:SO THAT I can create a strong password that provides greater security
+! AS AN employee with access to sensitive data
+! I WANT to randomly generate a password that meets certain criteria
+! SO THAT I can create a strong password that provides greater security
 
-TODO: Acceptance Criteria:
+? Acceptance Criteria:
 
 TODO:GIVEN I need a new, secure password
 TODO:WHEN I click the button to generate a password
@@ -29,7 +29,7 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
   //Setting and confirming the number of characters
-  var securePass = [];
+  var securePass = "";
   var pass_length;
 
   //Keep Checking until expectation met number of chars
@@ -40,7 +40,7 @@ function generatePassword() {
     alert(
       isNaN(pass_length) || pass_length < 8 || pass_length > 128
         ? "For Try again! (Legal amount is 8-128)"
-        : "You said," + pass_length
+        : "You said, " + pass_length
     );
   }
 
@@ -65,12 +65,33 @@ function generatePassword() {
     );
   }
 
-  l_case = "abcdefghijklmnopqrstuvwxyz"
-  u_case = "ABCDEFGHIJKLMNOPQRTSTUVWXYZ"
-  num = "0123456789"
-  spec = "!()-.?[]_`~;:#$%^&*+="
+  l_case = "abcdefghijklmnopqrstuvwxyz";
+  u_case = "ABCDEFGHIJKLMNOPQRTSTUVWXYZ";
+  num = "0123456789";
+  spec = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~\"\\"
 
-  return securePass.toString();
+  /*
+  firstly applying the length
+  now conditionals to cover the choices
+  random selector to choose from chosen str
+  append the selections to empty securePass str
+  */
+
+for (let i = 0; i < pass_length; i++) {
+  
+  var selector;
+  var choice;
+
+  if (char_l_case) {
+    ran_index = Math.floor(Math.random()*l_case.length);
+    selector = l_case[ran_index];
+    choice = selector;
+  }
+  
+  securePass += choice;
+}
+
+  return securePass;
 }
 
 // Write password to the #password input
