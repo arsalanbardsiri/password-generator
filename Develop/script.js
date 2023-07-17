@@ -50,6 +50,7 @@ function generatePassword() {
   var char_u_case;
   var char_num;
   var char_spec;
+  var chosen;
 
   //Keep Checking until expectation met char type
   while (!char_l_case && !char_u_case && !char_num && !char_spec) {
@@ -68,7 +69,8 @@ function generatePassword() {
   l_case = "abcdefghijklmnopqrstuvwxyz";
   u_case = "ABCDEFGHIJKLMNOPQRTSTUVWXYZ";
   num = "0123456789";
-  spec = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~\"\\"
+  spec = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~\"\\";
+  chosen = "";
 
   /*
   firstly applying the length
@@ -77,19 +79,26 @@ function generatePassword() {
   append the selections to empty securePass str
   */
 
-for (let i = 0; i < pass_length; i++) {
-  
-  var selector;
-  var choice;
-
   if (char_l_case) {
-    ran_index = Math.floor(Math.random()*l_case.length);
-    selector = l_case[ran_index];
-    choice = selector;
+    chosen += l_case;
   }
-  
-  securePass += choice;
-}
+
+  if (char_u_case) {
+    chosen += u_case;
+  }
+
+  if (char_num) {
+    chosen += num;
+  }
+
+  if (char_spec) {
+    chosen += spec;
+  }
+
+  for (let i = 0; i < pass_length; i++) {
+    ran_index = Math.floor(Math.random() * chosen.length);
+    securePass += chosen[ran_index];
+  }
 
   return securePass;
 }
