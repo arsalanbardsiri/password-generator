@@ -24,8 +24,7 @@ TODO:WHEN the password is generated
 TODO:THEN the password is either displayed in an alert or written to the page
 */
 
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
+// Assignment code here
 
 // Function to generate the password
 function generatePassword() {
@@ -87,12 +86,16 @@ function generatePassword() {
   return securePass;
 }
 
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
 }
 
 // Add event listener to generate button
