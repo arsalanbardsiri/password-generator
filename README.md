@@ -4,7 +4,7 @@
 
 The Password Generator is a web application that allows users to generate random and secure passwords. It prompts the user to select criteria such as password length and character types (lowercase, uppercase, numbers, and special characters). Based on the user's selections, the application generates a password that meets the specified criteria. This project demonstrates the use of HTML, CSS, and JavaScript to create an interactive password generation tool.
 
-![Password Generator Screenshot](./assets/03-javascript-homework-demo.png)
+![Password Generator Screenshot](./Assets/03-javascript-homework-demo.png)
 
 ## Table of Contents
 
@@ -50,7 +50,7 @@ The Password Generator project utilizes the following technologies:
 
 Here's a screenshot of the Password Generator in action:
 
-![Preview](./assets/preview.gif)
+![Preview](./Assets/preview.gif)
 
 ## License
 
