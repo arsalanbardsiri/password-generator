@@ -57,8 +57,8 @@ function generatePassword() {
 
     // Keep checking until the expected character types are selected
 
-    var char_spec = confirm("Include special characters?");
     var char_num = confirm("Include numbers?");
+    var char_spec = confirm("Include special characters?");
     var char_l_case = confirm("Include lowercase letters?");
     var char_u_case = confirm("Include uppercase letters?");
 
@@ -86,11 +86,11 @@ function generatePassword() {
     }
   }
   // Build the chosen character set based on user selections
-  if (char_spec) {
-    chosen += "!#$%&'()*+,-./:;<=>?@[]^_`{|}~\"\\";
-  }
   if (char_num) {
     chosen += "0123456789";
+  }
+  if (char_spec) {
+    chosen += "!#$%&'()*+,-./:;<=>?@[]^_`{|}~\"\\";
   }
   if (char_l_case) {
     chosen += "abcdefghijklmnopqrstuvwxyz";
