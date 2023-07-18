@@ -37,6 +37,10 @@ function generatePassword() {
     var num_of_chars = prompt("Number of Characters? (8-128)");
     pass_length = parseInt(num_of_chars);
 
+    if (num_of_chars === null) {
+      return null;
+    }
+
     // Validate the input and provide feedback to the user
     alert(
       isNaN(pass_length) || pass_length < 8 || pass_length > 128
