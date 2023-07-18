@@ -59,12 +59,28 @@ function generatePassword() {
     var char_num = confirm("Include numbers?");
     var char_spec = confirm("Include special characters?");
 
+    /*
+    
     // Validate the input and provide feedback to the user
     alert(
       !char_l_case && !char_u_case && !char_num && !char_spec
         ? "Please select at least one character type."
         : "Alright!"
     );
+
+    */
+
+    // Check if the user chose to cancel
+    if (!char_l_case && !char_u_case && !char_num && !char_spec) {
+      var cancel = confirm("Do you intend to quit from the generator app?");
+      if (cancel) {
+        // User chose to cancel
+        return null;
+      } else {
+        // Continue prompting for character types
+        continue;
+      }
+    }
 
     // Build the chosen character set based on user selections
     if (char_l_case) {
@@ -99,7 +115,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
