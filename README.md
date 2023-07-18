@@ -20,7 +20,7 @@ The Password Generator is a web application that allows users to generate random
 
 To use the Password Generator locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/password-generator.git`
+1. Clone the repository: `git clone https://github.com/arsalanbardsiri/password-generator.git`
 2. Navigate to the project directory: `cd password-generator`
 3. Open the `index.html` file in your web browser.
 
