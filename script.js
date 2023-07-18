@@ -31,6 +31,7 @@ function generatePassword() {
   // Setting and confirming the number of characters
   var securePass = "";
   var pass_length;
+  var chosen = "";
 
   // Keep checking until the expected number of characters is met
   while (isNaN(pass_length) || pass_length < 8 || pass_length > 128) {
@@ -47,13 +48,11 @@ function generatePassword() {
         ? "Please try again! (The legal range is 8-128 characters)"
         : "You chose " + pass_length + " characters."
     );
-  }
 
-  // Variable to store the chosen character set
-  var chosen = "";
+    // Variable to store the chosen character set
 
-  // Keep checking until the expected character types are selected
-  while (!chosen) {
+    // Keep checking until the expected character types are selected
+
     var char_l_case = confirm("Include lowercase letters?");
     var char_u_case = confirm("Include uppercase letters?");
     var char_num = confirm("Include numbers?");
@@ -81,20 +80,19 @@ function generatePassword() {
         continue;
       }
     }
-
-    // Build the chosen character set based on user selections
-    if (char_l_case) {
-      chosen += "abcdefghijklmnopqrstuvwxyz";
-    }
-    if (char_u_case) {
-      chosen += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-    if (char_num) {
-      chosen += "0123456789";
-    }
-    if (char_spec) {
-      chosen += "!#$%&'()*+,-./:;<=>?@[]^_`{|}~\"\\";
-    }
+  }
+  // Build the chosen character set based on user selections
+  if (char_l_case) {
+    chosen += "abcdefghijklmnopqrstuvwxyz";
+  }
+  if (char_u_case) {
+    chosen += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  }
+  if (char_num) {
+    chosen += "0123456789";
+  }
+  if (char_spec) {
+    chosen += "!#$%&'()*+,-./:;<=>?@[]^_`{|}~\"\\";
   }
 
   // Generate the password
